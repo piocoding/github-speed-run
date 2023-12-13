@@ -1,0 +1,35 @@
+public class V2Q3 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        String[] str1  = {"0", "a", ".", "-5E7", "2e+8", "2e2e"};
+        String[] str2  = {"2e", "1a", "11e2.5", "-3", "+3", "+-3"};
+        boolean[] isNum1 = isNum(str1);
+        printBool(str1, isNum1);
+        boolean[] isNum2 = isNum(str2);
+        printBool(str2, isNum2);
+    }
+    
+    public static boolean[] isNum(String[] array){
+        boolean[] isNum = new boolean[array.length];
+        for (int i = 0; i < array.length; i++) {
+            try{ 
+                double dbl = Double.valueOf(array[i]);
+                isNum[i] = true;
+            }
+            catch(Exception e){
+                isNum[i] = false;
+            }
+        }
+        return isNum;
+    }
+    
+    public static void printBool(String[] str, boolean[] bool){
+        for (int i = 0; i < str.length; i++) {
+            System.out.println(str[i] + "\t" + bool[i]);
+        }
+    }
+    
+}
